@@ -7,7 +7,7 @@ RDEPENDS_${PN}-ptest = "bash make"
 LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
                     file://COPYING.LIB;endline=24;md5=c04def7ae38850e7d3ef548588159913"
 
-SRC_URI = "http://wiki.qemu-project.org/download/${BP}.tar.bz2 \
+SRC_URI = "https://download.qemu.org/${BPN}-${PV}.tar.xz \
            file://powerpc_rom.bin \
            file://0001-sdl.c-allow-user-to-disable-pointer-grabs.patch \
            file://0002-qemu-Add-missing-wacom-HID-descriptor.patch \
@@ -20,22 +20,38 @@ SRC_URI = "http://wiki.qemu-project.org/download/${BP}.tar.bz2 \
            file://0008-chardev-connect-socket-to-a-spawned-command.patch \
            file://0009-apic-fixup-fallthrough-to-PIC.patch \
            file://0010-linux-user-Fix-webkitgtk-hangs-on-32-bit-x86-target.patch \
-           file://0011-memfd-fix-configure-test.patch \
-           file://0012-arm-translate-a64-treat-DISAS_UPDATE-as-variant-of-D.patch \
-           file://0013-ps2-check-PS2Queue-pointers-in-post_load-routine.patch \
-           file://0001-CVE-2018-11806-QEMU-slirp-heap-buffer-overflow.patch \
-           file://CVE-2018-7550.patch \
-           file://CVE-2018-12617.patch \
+           file://0011-Revert-linux-user-fix-mmap-munmap-mprotect-mremap-sh.patch \
+           file://CVE-2018-10839.patch\
+           file://CVE-2018-15746.patch \
+           file://CVE-2018-17962.patch \
+           file://CVE-2018-17963.patch \
+           file://CVE-2018-16867.patch \
+           file://CVE-2018-16872.patch \
+           file://CVE-2018-18849.patch \
+           file://CVE-2018-19364_p1.patch \
+           file://CVE-2018-19364_p2.patch \
+           file://CVE-2018-19489.patch \
+           file://CVE-2019-12155.patch \
+           file://CVE-2018-20815_p1.patch \
+           file://CVE-2018-20815_p2.patch \
+           file://CVE-2019-9824.patch \
+           file://0014-linux-user-fix-to-handle-variably-sized-SIOCGSTAMP-w.patch \
+           file://CVE-2018-18954.patch \
+           file://CVE-2019-3812.patch \
+           file://CVE-2019-6778.patch \
+           file://CVE-2019-8934.patch \
+           file://0001-linux-user-assume-__NR_gettid-always-exists.patch \
+           file://0001-linux-user-rename-gettid-to-sys_gettid-to-avoid-clas.patch \
            "
-UPSTREAM_CHECK_REGEX = "qemu-(?P<pver>\d+\..*)\.tar"
+UPSTREAM_CHECK_REGEX = "qemu-(?P<pver>\d+(\.\d+)+)\.tar"
 
 SRC_URI_append_class-native = " \
-            file://0014-fix-libcap-header-issue-on-some-distro.patch \
-            file://0015-cpus.c-Add-error-messages-when-qemi_cpu_kick_thread-.patch \
+            file://0012-fix-libcap-header-issue-on-some-distro.patch \
+            file://0013-cpus.c-Add-error-messages-when-qemi_cpu_kick_thread-.patch \
             "
 
-SRC_URI[md5sum] = "61cf862b6007eba4ac98247776af2e27"
-SRC_URI[sha256sum] = "d9df2213ceed32e91dab7bc9dd19c1af83f91ba72c7aeef7605dfaaf81732ccb"
+SRC_URI[md5sum] = "6a5c8df583406ea24ef25b239c3243e0"
+SRC_URI[sha256sum] = "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
 
 COMPATIBLE_HOST_mipsarchn32 = "null"
 COMPATIBLE_HOST_mipsarchn64 = "null"
